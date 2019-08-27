@@ -5,7 +5,7 @@ import java.util.Scanner;
 import housing.Hostel;
 
 public class Runner {
-    private static Hostel hostel;
+    private Hostel hostel;
     
     public Runner(Hostel hostel) {
         this.hostel = hostel;

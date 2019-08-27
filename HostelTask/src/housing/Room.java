@@ -11,7 +11,6 @@ public class Room {
     private int residentsAmount;
     private double roomStatus;
     private ArrayList<Resident> residents;
-    private ArrayList<Double> marks;
     
     public Room() {
         super();
@@ -21,8 +20,7 @@ public class Room {
         this.roomNumber = roomNumber;
         this.residentsAmount = 0;
         this.roomStatus = 5.0;
-        this.residents = new ArrayList<Resident>(residentsAmount);
-        this.marks = new ArrayList<Double>();
+        this.residents = new ArrayList<Resident>();
     }
     
     public int getRoomNumber() {
@@ -51,17 +49,12 @@ public class Room {
         }
     }
     
-    public void removeResident() {
-        residentsAmount--;
-    }
-    
     public void settleResidentInRoom(Resident resident) {
         residents.add(resident);
-        residentsAmount++;
     }
     
     public boolean isRoomFull() {
-        if(residentsAmount < 3) {
+        if(residents.size() < 2) {
             return false;
         }
         return true;
@@ -69,7 +62,7 @@ public class Room {
     
     public double countRoomStatus() {
         double summaryStatus = 0.0;
-        for(Resident resident : this.residents) {
+        for(Resident resident : residents) {
             summaryStatus += resident.roomStatusContribution();
         }
         summaryStatus /= 3;
@@ -78,10 +71,5 @@ public class Room {
     
     public void setRoomStatus(double status) {
         roomStatus = status;
-        marks.add(roomStatus);
-    }
-    
-    public void setRoomResidents(Resident resident) {
-        residents.add(resident);
     }
 }

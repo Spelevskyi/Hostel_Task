@@ -10,22 +10,20 @@ public class Floor {
     
     private int floorNumber;
     private int roomsAmount;
-    private int studentsAmount;
     private ArrayList<Room> rooms;
-    private ArrayList<Resident> students;
+    private ArrayList<Resident> residents;
     private Headman headman;
     
     public Floor() {
         super();
     }
     
-    public Floor(int floorNumber, int roomsAmount, int studentsAmount) {
+    public Floor(int floorNumber, int roomsAmount) {
         super();
         this.floorNumber = floorNumber;
         this.roomsAmount = roomsAmount;
-        this.studentsAmount = studentsAmount;
         this.rooms = new ArrayList<Room>(roomsAmount);
-        this.students = new ArrayList<Resident>(studentsAmount);
+        this.residents = new ArrayList<Resident>();
     }
     
     public int getFloorNumber() {
@@ -34,10 +32,6 @@ public class Floor {
     
     public int getRoomsAmount() {
         return roomsAmount;
-    }
-    
-    public int getStudentsAmount() {
-        return studentsAmount;
     }
     
     public ArrayList<Room> getRooms(){
@@ -60,8 +54,8 @@ public class Floor {
         return rooms.get(index);
     }
     
-    public ArrayList<Resident> getStudents(){
-        return students;
+    public ArrayList<Resident> getResidents(){
+        return residents;
     }
     
     public boolean isHeadmanChoosed() {

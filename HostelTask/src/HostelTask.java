@@ -1,14 +1,5 @@
-
-import java.util.ArrayList;
-import java.util.Scanner;
-
-import administration.Administration;
 import housing.Hostel;
-import housing.Room;
 import initialization.Initialization;
-import persons.Commandant;
-import persons.Security;
-import residents.Resident;
 import utils.Runner;
 
 public class HostelTask {

@@ -103,6 +103,6 @@ public class Resident extends Student{
     } 
     
     public boolean hostelPassContribution() {
-        return responsibility + Random.generateHostelPassValue() <= 2 ? false : true;
+        return responsibility + Random.generateHostelPassValue() <= 0 ? false : true;
     }
 }

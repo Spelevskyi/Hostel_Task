@@ -34,8 +34,7 @@ public class Headman extends Resident{
     }
     
     public double setHeadmanRoomValue(double room_status) {
-        Random random = new Random();
-        return loyalty + (room_status/2) + random.generateHeadmanRoomStatusValue();
+        return loyalty + (room_status/2) + Random.generateHeadmanRoomStatusValue();
     }
     
     public boolean roomCheck(int date) {

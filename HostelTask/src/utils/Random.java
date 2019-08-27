@@ -27,8 +27,5 @@ public class Random {
     
     public static int generateHostelPassValue() {
         return (int) (-4 + Math.random()*10);
-    }
-    
-    
-
+    }    
 }
