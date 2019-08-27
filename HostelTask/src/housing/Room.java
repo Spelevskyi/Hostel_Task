@@ -51,8 +51,8 @@ public class Room {
         }
     }
     
-    public void removeResident(Resident resident) {
-        
+    public void removeResident() {
+        residentsAmount--;
     }
     
     public void settleResidentInRoom(Resident resident) {

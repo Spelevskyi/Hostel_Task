@@ -1,4 +1,4 @@
-package Administration;
+package administration;
 
 import java.util.ArrayList;
 
@@ -83,9 +83,14 @@ public class Administration {
     
     public void paymentChecking(Hostel hostel) {
         for(Resident resident : hostel.getResidents()){
-            if(resident.paymentContribution() <= 0) {
+            if(resident.paymentContribution() <= -4) {
                 resident.setPaymentFault();
             }
         }
     }
+    
+    public Security getSecurity() {
+        return security;
+    }
+    
 }

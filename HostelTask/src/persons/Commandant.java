@@ -16,17 +16,16 @@ public class Commandant{
     }
     
     public void settleInHostel(Hostel hostel) {
-        Random random = new Random();
         for(Floor floor : hostel.getFloors()) {
             for(Room room : floor.getRooms()) {
-                Resident resident = new Resident(random.generateCourseValue(),random.generateQualitieValue(),
-                        random.generateQualitieValue(),random.generateQualitieValue());
-                hostel.setResident(resident);
-                while(!room.isRoomFull()) {
-                    room.settleResidentInRoom(resident);
-                    resident.setRoomNumber(room.getRoomNumber());
-                    System.out.println("Student was settled in room: " + room.getRoomNumber());
+               while(!room.isRoomFull()) {
+                   Resident resident = new Resident(Random.generateCourseValue(),Random.generateQualitieValue(),
+                          Random.generateQualitieValue(),Random.generateQualitieValue());
+                   room.settleResidentInRoom(resident);
+                   resident.setRoomNumber(room.getRoomNumber());
+                   System.out.println("Student was settled in room: " + room.getRoomNumber());
                 }
+
             }
         }
     }
@@ -38,23 +37,37 @@ public class Commandant{
                 while(iterator.hasNext()) {
                     Resident resident = iterator.next();
                     if(resident.getPaymentFault()) {
+                       hostel.getAdministration().getSecurity().helpEvictResident("Student was evicted from room "
+                       + resident.getRoomNumber() + " because of payment fault.");
                        iterator.remove();
-                       System.out.println("Student was evicted from room " + resident.getRoomNumber() + " because"
-                               + " of payment fault.");
+                       room.removeResident();
+                       hostel.getResidents().remove(resident);
                     }
                     else if(resident.getProtocolsAmount() >= 2) {
+                        hostel.getAdministration().getSecurity().helpEvictResident("Student was evicted from room "
+                        + resident.getRoomNumber() + " because protocols amount graiter than 2.");
                         iterator.remove();
-                        System.out.println("Student was evicted from room " + resident.getRoomNumber() + " because"
-                                + " protocols amount graiter than 2.");
+                        room.removeResident();
+                        hostel.getResidents().remove(resident);
                     }
                     else if(resident.getCourseNumber() > 4) {
+                        hostel.getAdministration().getSecurity().helpEvictResident("Student was evicted from room " 
+                        + resident.getRoomNumber() + " because he ended studying in university.");
                         iterator.remove();
-                        System.out.println("Student was evicted from room " + resident.getRoomNumber() + " because"
-                                + " he was leaving tne university.");
+                        room.removeResident();
+                        hostel.getResidents().remove(resident);
+                    }
+                    else if(resident.universityExpulsion()) {
+                        hostel.getAdministration().getSecurity().helpEvictResident("Student was evicted from room " 
+                        + resident.getRoomNumber() + " because of university expulsion.");
+                        iterator.remove();
+                        room.removeResident();
+                        hostel.getResidents().remove(resident);
                     }
                  }
             }
         }
+        return;
     }
     
 }

@@ -2,7 +2,7 @@ package housing;
 
 import java.util.ArrayList;
 
-import Administration.Administration;
+import administration.Administration;
 import residents.Resident;
 
 public class Hostel {
@@ -47,6 +47,8 @@ public class Hostel {
             int years = resident.getYearsInHostel();
             resident.setYearsInHostel(years + 1);
             resident.newCourse();
+            resident.setPaymentFault(false);
+            resident.setProtocolsAmount(0);
         }
     }
     
@@ -84,5 +86,9 @@ public class Hostel {
     
     public Floor getFloor(int index) {
         return floors.get(index);
+    }
+    
+    public Administration getAdministration() {
+        return administration;
     }
 }

@@ -1,4 +1,7 @@
 package persons;
+
+import utils.Random;
+
 public class Student {
     private int courseNumber;
     
@@ -16,5 +19,9 @@ public class Student {
     
     public void newCourse() {
         courseNumber++;
+    }
+    
+    public boolean universityExpulsion() {
+        return Random.generateQualitieValue() == 1;
     }
 }

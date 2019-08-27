@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import Administration.Administration;
+import administration.Administration;
 import housing.Floor;
 import housing.Hostel;
 import housing.Room;

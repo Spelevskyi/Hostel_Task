@@ -2,8 +2,7 @@ package utils;
 
 public class Random {
     public static int generateQualitieValue() {
-        int num = (int) (1 + Math.random()*5);
-        return num;
+        return (int) (1 + Math.random()*5);
     }
     
     public static int generateCourseValue() {
@@ -15,7 +14,7 @@ public class Random {
     }
     
     public static int generateSecurityLoyaltyValue() {
-        return (int) (1 + Math.random()*10);
+        return (int) (1 + Math.random()*20);
     }
     
     public static int generateResidentRoomStatusValue() {

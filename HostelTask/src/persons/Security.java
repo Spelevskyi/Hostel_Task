@@ -22,4 +22,8 @@ public class Security{
         }
         return true;
     }
+    
+    public void helpEvictResident(String cause) {
+        System.out.println(cause);
+    }
 }
