@@ -25,7 +25,6 @@ public class Commandant{
                    resident.setRoomNumber(room.getRoomNumber());
                    System.out.println("Student was settled in room: " + room.getRoomNumber());
                 }
-
             }
         }
     }
